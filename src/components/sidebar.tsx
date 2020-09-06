@@ -43,7 +43,7 @@ export const Sidebar: FC = () => {
         <MenuOutlined style={{ fontSize: "2em" }} />
       </ThreeDotContainer>
       <ItemContainer ref={sidebarRef} style={{ x: xPos }}>
-        <a href="/">
+        <a href="/davidmcnamee-resume.pdf">
           <Item>Resumé</Item>
         </a>
         <a href="https://github.com/davidmcnamee">
