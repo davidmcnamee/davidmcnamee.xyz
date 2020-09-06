@@ -26,7 +26,7 @@ export default function Home() {
             <Card
               ref={cardRefs[idx].ref}
               img={c.img}
-              backgroundColor={colourWheel[idx % colourWheel.length]}
+              background={colourWheel[idx % colourWheel.length]}
               imgLeft={!(idx % 2)}
             >
               {c.children}
@@ -41,11 +41,11 @@ export default function Home() {
 }
 
 const colourWheel = [
-  "rgb(238, 0, 153, 0.8)",
-  "rgb(238, 0, 153, 0.8)",
-  "rgb(238, 0, 153, 0.8)",
-  "rgb(238, 0, 153, 0.8)",
-  "rgb(238, 0, 153, 0.8)",
+  "linear-gradient(120deg, #f12711, #f5af19)",
+  "linear-gradient(120deg, #fc466b, #3f5efb)",
+  "linear-gradient(120deg, #23074d, #cc5333)",
+  "linear-gradient(120deg, #000000, #0f9b0f)",
+  "linear-gradient(120deg, #2193b0, #6dd5ed)",
 ];
 
 const content: (Pick<CardProps, "img" | "children"> & { title: string })[] = [

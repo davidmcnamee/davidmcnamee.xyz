@@ -8,25 +8,32 @@ export const Sidebar: FC = () => {
   const xPos = useSpring(0, { damping: 40 });
   const threeDotOpacity = useSpring(0, { damping: 40 });
 
+  const open = () => {
+    xPos.set(-sidebarRef.current.getBoundingClientRect().width);
+    threeDotOpacity.set(0);
+  };
+
+  const close = () => {
+    xPos.set(0);
+    threeDotOpacity.set(1);
+  };
+
   useEffect(() => {
     const checkIfRHS = (event: MouseEvent) => {
-      if (event.clientX / window.innerWidth >= 0.6) {
-        xPos.set(-sidebarRef.current.getBoundingClientRect().width);
-        threeDotOpacity.set(0);
-      } else {
-        xPos.set(0);
-        threeDotOpacity.set(1);
-      }
+      if (window.scrollY < 500) return open();
+      if (event.clientX / window.innerWidth >= 0.66) open();
+      else close();
     };
     const onMouseOut = () => {
-      xPos.set(0);
-      threeDotOpacity.set(1);
+      if (window.scrollY >= 500) close();
     };
+    document.addEventListener("scroll", checkIfRHS);
     document.addEventListener("mouseout", onMouseOut);
     document.addEventListener("mousemove", checkIfRHS);
     return () => {
-      document.removeEventListener("mousemove", checkIfRHS);
+      document.removeEventListener("scroll", checkIfRHS);
       document.removeEventListener("mouseout", onMouseOut);
+      document.removeEventListener("mousemove", checkIfRHS);
     };
   }, []);
 
@@ -36,12 +43,24 @@ export const Sidebar: FC = () => {
         <MenuOutlined style={{ fontSize: "2em" }} />
       </ThreeDotContainer>
       <ItemContainer ref={sidebarRef} style={{ x: xPos }}>
-        <Item>Resumé</Item>
-        <Item>Github</Item>
-        <Item>LinkedIn</Item>
-        <Item>Peruse</Item>
-        <Item>Ingredient Simplifier</Item>
-        <Item>Text Summarizer</Item>
+        <a href="/">
+          <Item>Resumé</Item>
+        </a>
+        <a href="https://github.com/davidmcnamee">
+          <Item>Github</Item>
+        </a>
+        <a href="https://www.linkedin.com/in/david-mcnamee/">
+          <Item>LinkedIn</Item>
+        </a>
+        <a href="/">
+          <Item>Project: Peruse</Item>
+        </a>
+        <a href="/">
+          <Item>Project: Ingredient Simplifier</Item>
+        </a>
+        <a href="/">
+          <Item>Project: Text Summarizer</Item>
+        </a>
       </ItemContainer>
     </>
   );
@@ -80,5 +99,6 @@ const Item = styled.li`
       rgb(238, 0, 153, 1)
     );
   }
+  color: var(--text-color);
   border-bottom: 0.001px solid black;
 `;

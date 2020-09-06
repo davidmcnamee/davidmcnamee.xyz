@@ -19,6 +19,12 @@ export const Hero: FC = () => {
           </a>
           <br />
           Nice to meet you! 😄
+          <br />
+          This website is still under development, so please ignore the lack of
+          content below.
+          <br />
+          <br />
+          You can find my contact info by scrolling to the right --{">"}
         </BlurbParagraph>
       </HelloBox>
     </Container>

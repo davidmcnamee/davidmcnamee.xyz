@@ -2,18 +2,18 @@ import { ReactNode, forwardRef } from "react";
 import styled from "styled-components";
 
 export type CardProps = {
-  backgroundColor: string;
+  background: string;
   img: string;
   imgLeft: boolean;
   children: ReactNode;
 };
 
 export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
-  const { backgroundColor, img, imgLeft, children } = props;
+  const { background, img, imgLeft, children } = props;
   return (
     <InvisibleContainer ref={ref}>
       {imgLeft && <Image src={img} />}
-      <Container style={{ backgroundColor }}>{children}</Container>
+      <Container style={{ background }}>{children}</Container>
       {!imgLeft && <Image src={img} />}
     </InvisibleContainer>
   );
