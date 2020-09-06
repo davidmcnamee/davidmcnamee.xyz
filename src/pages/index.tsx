@@ -1,57 +1,70 @@
 import Head from "next/head";
-// import { styled } from "styled-components";
+import { Hero } from "../components/hero";
+import { Sidebar } from "../components/sidebar";
+import { BackgroundWord, Spacer } from "../components/background-word";
+import { Card, CardProps } from "../components/card";
+import { useRef, useState, Fragment } from "react";
+import { Footer } from "../components/footer";
 
 export default function Home() {
+  const [cardRefs] = useState(
+    content.map((c) => ({ ref: useRef(), title: c.title }))
+  );
   return (
-    <div>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>David McNamee</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Sidebar />
       <main>
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div>
-          <a href="https://nextjs.org/docs">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="https://github.com/vercel/next.js/tree/master/examples">
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <Hero />
+        <BackgroundWord cardRefs={cardRefs} />
+        {content.map((c, idx) => (
+          <Fragment key={idx}>
+            <Spacer />
+            <Card
+              ref={cardRefs[idx].ref}
+              img={c.img}
+              backgroundColor={colourWheel[idx % colourWheel.length]}
+              imgLeft={!(idx % 2)}
+            >
+              {c.children}
+            </Card>
+          </Fragment>
+        ))}
+        <Spacer />
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" />
-        </a>
-      </footer>
-    </div>
+      <Footer />
+    </>
   );
 }
+
+const colourWheel = [
+  "rgb(238, 0, 153, 0.8)",
+  "rgb(238, 0, 153, 0.8)",
+  "rgb(238, 0, 153, 0.8)",
+  "rgb(238, 0, 153, 0.8)",
+  "rgb(238, 0, 153, 0.8)",
+];
+
+const content: (Pick<CardProps, "img" | "children"> & { title: string })[] = [
+  {
+    title: "Web",
+    children: <p>hello</p>,
+    img:
+      "https://lh3.googleusercontent.com/-dx_PAM3P4bfKmt1RTp2jmyt3Dy72FgbjAXKIwcyghwAQNyB5pzyyHLwpXnTC7r3E9fL_Xlc9w=w640-h400-e365-rj-sc0x00ffffff",
+  },
+  {
+    title: "Full Stack",
+    children: <p>hello</p>,
+    img:
+      "https://lh3.googleusercontent.com/-dx_PAM3P4bfKmt1RTp2jmyt3Dy72FgbjAXKIwcyghwAQNyB5pzyyHLwpXnTC7r3E9fL_Xlc9w=w640-h400-e365-rj-sc0x00ffffff",
+  },
+  {
+    title: "Mobile",
+    children: <p>hello</p>,
+    img:
+      "https://lh3.googleusercontent.com/-dx_PAM3P4bfKmt1RTp2jmyt3Dy72FgbjAXKIwcyghwAQNyB5pzyyHLwpXnTC7r3E9fL_Xlc9w=w640-h400-e365-rj-sc0x00ffffff",
+  },
+];

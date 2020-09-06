@@ -2,7 +2,7 @@
   "include": ["src/*"],
   "compilerOptions": {
     "target": "es5",
-    "jsx": "react",
+    "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
