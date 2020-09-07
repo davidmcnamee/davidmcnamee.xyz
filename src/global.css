@@ -11,6 +11,18 @@
   --color-link: #1890ff;
 }
 
+@media only screen and (max-width: 750px) {
+  :root {
+    font-size: 0.7em;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  :root {
+    font-size: 0.6em;
+  }
+}
+
 body {
   background-color: #121212;
   margin: 0;
@@ -33,6 +45,7 @@ h1 {
 p,
 span {
   font-weight: 600;
+  font-size: 2em;
 }
 
 a {

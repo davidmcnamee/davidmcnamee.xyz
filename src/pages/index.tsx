@@ -3,18 +3,20 @@ import { Hero } from "../components/hero";
 import { Sidebar } from "../components/sidebar";
 import { BackgroundWord, Spacer } from "../components/background-word";
 import { Card, CardProps } from "../components/card";
-import { useRef, useState, Fragment } from "react";
+import { useRef, useState, Fragment, useEffect } from "react";
 import { Footer } from "../components/footer";
 
 export default function Home() {
   const [cardRefs] = useState(
-    content.map((c) => ({ ref: useRef(), title: c.title }))
+    content.map((c) => ({
+      ref: useRef<HTMLDivElement>(null as any),
+      title: c.title,
+    }))
   );
   return (
     <>
       <Head>
         <title>David McNamee</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar />
       <main>

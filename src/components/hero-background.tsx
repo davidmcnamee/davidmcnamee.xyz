@@ -29,7 +29,7 @@ export const HeroBackground: FC = () => {
 
 const BackgroundBox = styled(motion.div)`
   position: absolute;
-  height: 80%;
+  height: 80vh;
   border-radius: 1em 8em;
   background-color: #292929;
 `;

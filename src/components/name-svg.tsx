@@ -18,18 +18,11 @@ export const NameSvg: FC = () => {
     useTransform(progress, (p) => (p === 0 ? 2 : 1)),
     { damping: 40, mass: 0.2 }
   );
-  const scale = useSpring(
-    useTransform(progress, (p) => (p === 0 ? 1 : 0.5)),
+  const widthNum = useSpring(
+    useTransform(progress, (p) => (p === 0 ? 30 : 15)),
     { damping: 40, mass: 0.2 }
   );
-  const x = useSpring(
-    useTransform(progress, (p) => (p === 0 ? 0 : -80)),
-    { damping: 40, mass: 0.2 }
-  );
-  const y = useSpring(
-    useTransform(progress, (p) => (p === 0 ? 0 : 60)),
-    { damping: 40, mass: 0.2 }
-  );
+  const width = useTransform(widthNum, (w) => `${w}vw`);
 
   useEffect(() => {
     const timeline = anime.timeline();
@@ -45,8 +38,8 @@ export const NameSvg: FC = () => {
   }, []);
 
   return (
-    <Container style={{ scale, x, y }}>
-      <svg ref={svgRef} width="333.04" height="180">
+    <Container>
+      <motion.svg ref={svgRef} style={{ width }} viewBox="0 0 333.04 180">
         <motion.path
           fill="#080708"
           stroke="#fff"
@@ -119,7 +112,7 @@ export const NameSvg: FC = () => {
           strokeWidth={strokeWidth}
           d="M321.10 130.26Q321.10 130.40 320.88 133.64L320.88 133.64L292.51 133.64Q293.38 136.66 295.86 138.28Q298.34 139.90 302.09 139.90L302.09 139.90Q304.90 139.90 306.95 139.11Q309.00 138.32 311.09 136.52L311.09 136.52L318.29 144.01Q312.60 150.34 301.66 150.34L301.66 150.34Q294.82 150.34 289.63 147.75Q284.45 145.16 281.60 140.55Q278.76 135.94 278.76 130.11L278.76 130.11Q278.76 124.35 281.53 119.78Q284.30 115.21 289.20 112.62Q294.10 110.02 300.22 110.02L300.22 110.02Q306.05 110.02 310.80 112.44Q315.55 114.85 318.32 119.42Q321.10 123.99 321.10 130.26L321.10 130.26ZM300.29 119.74Q297.12 119.74 295.00 121.54Q292.87 123.34 292.30 126.44L292.30 126.44L308.28 126.44Q307.70 123.34 305.58 121.54Q303.46 119.74 300.29 119.74L300.29 119.74Z"
         />
-      </svg>
+      </motion.svg>
     </Container>
   );
 };
@@ -128,6 +121,6 @@ const Container = styled(motion.div)`
   display: block;
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 1em;
   z-index: 100;
 `;

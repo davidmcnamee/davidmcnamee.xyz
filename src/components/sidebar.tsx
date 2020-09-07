@@ -43,7 +43,7 @@ export const Sidebar: FC = () => {
         <MenuOutlined style={{ fontSize: "2em" }} />
       </ThreeDotContainer>
       <ItemContainer ref={sidebarRef} style={{ x: xPos }}>
-        <a href="https://drive.google.com/file/d/14Lqf_L-iKreZ_eqGFofVKCCn4UQr1Dn2/view">
+        <a href="/davidmcnamee-resume.pdf">
           <Item>Resumé</Item>
         </a>
         <a href="https://github.com/davidmcnamee">
@@ -71,19 +71,19 @@ const ThreeDotContainer = styled(motion.div)`
 const ItemContainer = styled(motion.ul)`
   position: fixed;
   left: 100vw;
-  /* right: 0; */
-  max-width: 20%;
-  min-width: 10%;
+  min-width: 10em;
   z-index: 100;
   background-image: linear-gradient(
     80deg,
     rgb(238, 0, 153, 0.3),
     rgb(238, 0, 153, 1)
   );
+  border-bottom-left-radius: 2em;
 `;
 
 const Item = styled.li`
   list-style-type: none;
+  font-size: 1.5em;
   padding: 1em 1em 1em 2em;
   text-align: right;
   :hover {

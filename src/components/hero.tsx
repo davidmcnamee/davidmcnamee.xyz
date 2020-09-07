@@ -17,14 +17,11 @@ export const Hero: FC = () => {
           <a href="https://twitter.com/UWaterloo" target="_blank">
             @UWaterloo
           </a>
-          <br />
-          Nice to meet you! 😄
-          <br />
+        </BlurbParagraph>
+        <BlurbParagraph>Nice to meet you! 😄</BlurbParagraph>
+        <BlurbParagraph>
           This website is still under development, so please ignore the lack of
           content below.
-          <br />
-          <br />
-          You can find my contact info by scrolling to the right --{">"}
         </BlurbParagraph>
       </HelloBox>
     </Container>
@@ -32,7 +29,7 @@ export const Hero: FC = () => {
 };
 
 const Container = styled.div`
-  height: 700px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,12 +37,18 @@ const Container = styled.div`
 
 const HelloBox = styled.div`
   position: absolute;
+  top: 15vh;
+  height: 70vh;
   left: 35%;
-  width: 55%;
-  display: block;
-  top: 18%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: scroll;
 `;
 
 const BlurbParagraph = styled.p`
-  font-size: 2rem;
+  font-size: 2em;
+  margin-bottom: 0.5em;
 `;
