@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import styled, { keyframes } from "styled-components";
 import { ParallaxLayer } from "react-spring/renderprops-addons.cjs";
 
@@ -199,7 +199,7 @@ type SVGSectionProps = {
   factor: number;
 };
 
-export const SvgSection = ({ offset, factor }) => {
+export const SvgSection: FC<SVGSectionProps> = ({ offset, factor }) => {
   return (
     <Divider speed={0.2} offset={offset} factor={factor}>
       <UpDown>
