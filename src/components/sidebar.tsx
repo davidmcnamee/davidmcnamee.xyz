@@ -43,7 +43,7 @@ export const Sidebar: FC = () => {
         <MenuOutlined style={{ fontSize: "2em" }} />
       </ThreeDotContainer>
       <ItemContainer ref={sidebarRef} style={{ x: xPos }}>
-        <a href="/api/resume">
+        <a href="https://drive.google.com/file/d/14Lqf_L-iKreZ_eqGFofVKCCn4UQr1Dn2/view">
           <Item>Resumé</Item>
         </a>
         <a href="https://github.com/davidmcnamee">
@@ -52,14 +52,8 @@ export const Sidebar: FC = () => {
         <a href="https://www.linkedin.com/in/david-mcnamee/">
           <Item>LinkedIn</Item>
         </a>
-        <a href="/">
+        <a href="https://chrome.google.com/webstore/detail/peruse/fajccaeldgbiaigahbfpalgnbapjjmhp">
           <Item>Project: Peruse</Item>
-        </a>
-        <a href="/">
-          <Item>Project: Ingredient Simplifier</Item>
-        </a>
-        <a href="/">
-          <Item>Project: Text Summarizer</Item>
         </a>
       </ItemContainer>
     </>
