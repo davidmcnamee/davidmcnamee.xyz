@@ -9,7 +9,7 @@ export const Sidebar: FC = () => {
   const threeDotOpacity = useSpring(0, { damping: 40 });
 
   const open = () => {
-    xPos.set(-sidebarRef.current.getBoundingClientRect().width);
+    xPos.set(-sidebarRef.current!.getBoundingClientRect().width);
     threeDotOpacity.set(0);
   };
 
@@ -27,11 +27,11 @@ export const Sidebar: FC = () => {
     const onMouseOut = () => {
       if (window.scrollY >= 500) close();
     };
-    document.addEventListener("scroll", checkIfRHS);
+    document.addEventListener("scroll", checkIfRHS as any);
     document.addEventListener("mouseout", onMouseOut);
     document.addEventListener("mousemove", checkIfRHS);
     return () => {
-      document.removeEventListener("scroll", checkIfRHS);
+      document.removeEventListener("scroll", checkIfRHS as any);
       document.removeEventListener("mouseout", onMouseOut);
       document.removeEventListener("mousemove", checkIfRHS);
     };

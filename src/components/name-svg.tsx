@@ -9,7 +9,7 @@ import anime from "animejs";
 import styled from "styled-components";
 
 export const NameSvg: FC = () => {
-  const svgRef = useRef(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const progress = useTransform(useViewportScroll()["scrollY"], (y) =>
     y > 500 ? 1 : 0
   );
