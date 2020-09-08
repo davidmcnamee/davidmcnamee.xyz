@@ -45,6 +45,7 @@ const Image = styled.img`
   max-width: 42%;
   flex: 1;
   margin: 2em;
+  border-radius: 1.5em;
   @media only screen and (max-width: 750px) {
     max-width: 80%;
   }

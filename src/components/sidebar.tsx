@@ -53,7 +53,7 @@ export const Sidebar: FC = () => {
           <Item>LinkedIn</Item>
         </a>
         <a href="https://chrome.google.com/webstore/detail/peruse/fajccaeldgbiaigahbfpalgnbapjjmhp">
-          <Item>Project: Peruse</Item>
+          <Item last={true}>Project: Peruse</Item>
         </a>
       </ItemContainer>
     </>
@@ -81,7 +81,7 @@ const ItemContainer = styled(motion.ul)`
   border-bottom-left-radius: 2em;
 `;
 
-const Item = styled.li`
+const Item = styled.li<{ last?: boolean }>`
   list-style-type: none;
   font-size: 1.5em;
   padding: 1em 1em 1em 2em;
@@ -94,5 +94,5 @@ const Item = styled.li`
     );
   }
   color: var(--text-color);
-  border-bottom: 0.001px solid black;
+  border-bottom: ${p => p.last ? '0px' : '0.001px'} solid black;
 `;

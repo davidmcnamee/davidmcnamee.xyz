@@ -20,8 +20,8 @@ export const Hero: FC = () => {
         </BlurbParagraph>
         <BlurbParagraph>Nice to meet you! 😄</BlurbParagraph>
         <BlurbParagraph>
-          This site is still a WIP, but please click on one of the links to the
-          right to see my github/linkedin or recent chrome extension.
+          My interests are in Software Engineering, Entrepreneurship, and
+          Finance.
         </BlurbParagraph>
       </HelloBox>
     </Container>
