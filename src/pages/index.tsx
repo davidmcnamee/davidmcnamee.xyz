@@ -111,12 +111,11 @@ const content: (Pick<CardProps, "img" | "children"> & { title: string })[] = [
       <>
         <h2>Ingredient Simplifier</h2>
         <p>
-          As a project lead at Coffee N' Code last year, I got to teach a
-          beginner React Native class to a group of ~60 undergrad students
-          @UWaterloo! The app was fairly straightforward – it took a picture of
-          the ingredients on a food label and spit out a list of
-          easy-to-understand ingredients which ommitted all funny-sounding
-          chemical names. Take a look at the{" "}
+          As a project lead at Coffee N' Code last year, I got to teach beginner
+          React Native to a group of ~60 undergrad students @UWaterloo! The app
+          was fairly straightforward – it took a picture of the ingredients on a
+          food label and spit out a list of easy-to-understand ingredients which
+          ommitted all funny-sounding chemical names. Take a look at the{" "}
           <a href="https://github.com/davidmcnamee/ingredient-simplifier">
             source on github!
           </a>
