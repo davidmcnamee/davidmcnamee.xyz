@@ -140,6 +140,6 @@ const content: (Pick<CardProps, "img" | "children"> & { title: string })[] = [
         </p>
       </>
     ),
-    img: "static/mipc-1.png",
+    img: "static/mipc-2.jpg",
   },
 ];
